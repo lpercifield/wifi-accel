@@ -32,5 +32,11 @@ class testApp : public ofBaseApp{
     int ymax;
     int zmin;
     int zmax;
+    int mxmin;
+    int mxmax;
+    int mymin;
+    int mymax;
+    int mzmin;
+    int mzmax;
 };
 

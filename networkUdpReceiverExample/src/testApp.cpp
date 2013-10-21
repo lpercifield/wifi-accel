@@ -24,15 +24,22 @@ void testApp::update(){
 	if(message!=""){
 		//stroke.clear();
         
-		float x,y,z;
+		float x,y,z,mx,my,mz;
 		vector<string> strPoints = ofSplitString(message,"[/p]");
 		//for(int i=0;i<strPoints.size();i++){
         //cout << strPoints[0] << endl;
 			vector<string> point = ofSplitString(strPoints[0],"|");
-			if( point.size() == 3 ){
+			if( point.size() == 6 ){
+                //ACCEL
 				x=atof(point[0].c_str());
 				y=atof(point[1].c_str());
                 z=atof(point[2].c_str());
+                //MAG
+                mx=atof(point[0].c_str());
+				my=atof(point[1].c_str());
+                mz=atof(point[2].c_str());
+                
+                //ACCEL
                 if(x<xmin){
                     xmin = x;
                 }
@@ -50,6 +57,25 @@ void testApp::update(){
                 }
                 if(z>zmax){
                     zmax = z;
+                }
+                //MAG
+                if(mx<mxmin){
+                    mxmin = mx;
+                }
+                if(my<mymin){
+                    mymin = my;
+                }
+                if(mz<mzmin){
+                    mzmin = mz;
+                }
+                if(mx>mxmax){
+                    mxmax = mx;
+                }
+                if(my>mymax){
+                    mymax = my;
+                }
+                if(mz>mzmax){
+                    mzmax = mz;
                 }
                 cout << "X: "<< xmin << " " << xmax << endl;
                 cout << "Y: "<< ymin << " " << ymax << endl;
